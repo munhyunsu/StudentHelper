@@ -10,12 +10,11 @@
 <body>
     <h1> 호수돈여고의 프로젝트 인덱스 페이지 </h1>
     <h2> 이곳에는 로그인 창이 있어야 할 듯! </h2>
-{#    {% block id %}#}
     {% if id is not None %}
-        <h3>Hello {{ id }} {{ mem_type }}</h3>
+        <h3>Hello {{ mem_type }} {{ id }}</h3>
     {% else %}
         <div>
-          <form action="/index.html">
+          <form action="index">
             <label for="id">ID</label>
             <input type="text" id="id" name="identifier" placeholder="Your ID..">
 
@@ -32,6 +31,5 @@
           </form>
         </div>
     {% endif %}
-{#    {% endblock %}#}
 </body>
 </html>
