@@ -23,7 +23,9 @@
         class="close" title="Close Modal">&times;</span>
 
         <!-- Modal Content -->
-        <form class="modal-content animate" action="smain">
+        <form class="modal-content animate" method="post" action="smain">
+{#        <form class="modal-content animate" method="post">{% csrf_token %}#}
+            {% csrf_token %}
             <div class="imgcontainer">
                 <img src="{% static "img/student.png" %}" alt="Avatar" class="avatar">
             </div>
@@ -53,7 +55,8 @@
         class="close" title="Close Modal">&times;</span>
 
         <!-- Modal Content -->
-        <form class="modal-content animate" action="tmain">
+        <form class="modal-content animate" method="post" action="tmain">
+            {% csrf_token %}
             <div class="imgcontainer">
                 <img src="{% static "img/teacher.png" %}" alt="Avatar" class="avatar">
             </div>
@@ -76,16 +79,48 @@
         </form>
     </div>
 </div>
+<div align="right">
+<button onclick="document.getElementById('signup').style.display='block'" style="width:auto;">Sign Up</button>
+</div>
+<div id="signup" class="modal">
+  <span onclick="document.getElementById('signup').style.display='none'" class="close" title="Close Modal">&times;</span>
+  <form class="modal-content" action="signup" method="post">
+            {% csrf_token %}
+    <div class="container">
+      <h1>Sign Up</h1>
+      <p>Please fill in this form to create an account.</p>
+      <hr>
+      <label for="username"><b>Username</b></label>
+        <span class="helptext"><ul><li>Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</li></ul></span>
+      <input type="text" placeholder="Enter Username" name="username" required>
+
+      <label for="password1"><b>Password</b></label>
+        <span class="helptext"><ul><li>Your password can't be too similar to your other personal information.</li><li>Your password must contain at least 8 characters.</li><li>Your password can't be a commonly used password.</li><li>Your password can't be entirely numeric.</li></ul></span>
+      <input type="password" placeholder="Enter Password" name="password1" required>
+
+      <label for="password2"><b>Repeat Password</b></label>
+        <span class="helptext"><ul><li>Enter the same password as before, for verification.</li></ul></span>
+      <input type="password" placeholder="Repeat Password" name="password2" required>
+
+      <div class="clearfix">
+        <button type="button" onclick="document.getElementById('signup').style.display='none'" class="cancelbtn">Cancel</button>
+        <button type="submit" class="signupbtn">Sign Up</button>
+      </div>
+    </div>
+  </form>
+</div>
 <script>
     // Get the modal
     const modal1 = document.getElementById('id01');
     const modal2 = document.getElementById('id02');
+    const modal3 = document.getElementById('signup');
 
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function (event) {
-        if (event.target === modal1 || event.target === modal2) {
+        if (event.target === modal1 || event.target === modal2 || event.target === modal3) {
             modal1.style.display = "none";
             modal2.style.display = "none";
+            modal3.style.display = "none";
         }
     }
 </script>

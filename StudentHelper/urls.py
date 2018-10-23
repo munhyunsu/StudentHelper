@@ -15,11 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, re_path
+import django.contrib.auth.urls
+from django.contrib.auth import views as auth_views
+
 
 import views
 
 urlpatterns = [
     re_path(r'^$|index', views.index),
-    re_path(r'login', views.login),
+    re_path(r'signup', views.signup),
+    re_path(r'smain', views.smain),
+    re_path(r'tmain', views.tmain),
+    re_path(r'thread', views.thread),
     path('admin/', admin.site.urls),
 ]

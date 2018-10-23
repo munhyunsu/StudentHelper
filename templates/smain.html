@@ -1,10 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}">
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Student Helper - Student main</title>
 </head>
 <body>
+<h3>Student {{ method }} {{ user.is_authenticated }} {{ user.username }} {{ user.password }}</h3>
+
+<div class="row">
+    <div class="column" style="background-color:#eee;">
+        <h2>내 글 확인하기</h2>
+        <p>Some text..</p>
+    </div>
+    <div class="column" style="background-color:#ddd;">
+        <h2>새로 글 쓰기</h2>
+        <a href="thread.html"><p>Some text..</p></a>
+    </div>
+</div>
 
 </body>
 </html>
