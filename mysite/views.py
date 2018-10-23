@@ -5,6 +5,7 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import UserCreationForm
 from django.template import RequestContext
 
+from advice.models import Question
 
 def index(request):
     return render(request, 'index.html')
@@ -14,8 +15,11 @@ def smain(request):
     if request.method == 'GET':
         method = request.method
         user = request.user
+        all_posts = Question.objects.all().filter(author=user)
+        template_data = {'posts': all_posts}
         return render(request, 'smain.html', {'method': method,
-                                              'user': user})
+                                              'user': user,
+                                              'posts': all_posts})
     elif request.method == 'POST':
         method = request.method
         uname = request.POST.get('uname')
@@ -73,3 +77,8 @@ def signup(request):
     else:
         form = UserCreationForm()
         return render(request, 'signup.html', {'form': form})
+
+
+def detail(request, question_id):
+    question = Question.objects.get(id=question_id)
+    return HttpResponse(question.title + question.content)

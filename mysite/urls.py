@@ -1,4 +1,4 @@
-"""StudentHelper URL Configuration
+"""mysite URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.1/topics/http/urls/
@@ -15,11 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, re_path
-import django.contrib.auth.urls
-from django.contrib.auth import views as auth_views
 
-
-import views
+from mysite import views
 
 urlpatterns = [
     re_path(r'^$|index', views.index),
@@ -27,5 +24,6 @@ urlpatterns = [
     re_path(r'smain', views.smain),
     re_path(r'tmain', views.tmain),
     re_path(r'thread', views.thread),
+    path('detail/<int:question_id>/', views.detail),
     path('admin/', admin.site.urls),
 ]
