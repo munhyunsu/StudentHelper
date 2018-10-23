@@ -2,34 +2,92 @@
 <html lang="en">
 <head>
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static "index.css" %}">
-    <link rel="stylesheet" type="text/css" href="{% static "login.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/index.css" %}">
     <meta charset="UTF-8">
-    <title>호수돈여고의 프로젝트</title>
+    <title>Student Helper</title>
 </head>
 <body>
-    <h1> 호수돈여고의 프로젝트 인덱스 페이지 </h1>
-    <h2> 이곳에는 로그인 창이 있어야 할 듯! </h2>
-    {% if id is not None %}
-        <h3>Hello {{ mem_type }} {{ id }}</h3>
-    {% else %}
-        <div>
-          <form action="index">
-            <label for="id">ID</label>
-            <input type="text" id="id" name="identifier" placeholder="Your ID..">
+<div>
+    <!-- Button to open the modal login form -->
+    <div align="center">
+        {#    <button onclick="document.getElementById('id01').style.display='block'">Login</button>#}
+        <img src="{% static "img/student.png" %}" onclick="document.getElementById('id01').style.display='block'"
+             class="avatar"/>
+        <img src="{% static "img/teacher.png" %}" onclick="document.getElementById('id02').style.display='block'"
+             class="avatar"/>
+    </div>
 
-            <label for="passwd">Password</label>
-            <input type="password" id="passwd" name="password" placeholder="Your Password..">
+    <!-- The Modal -->
+    <div id="id01" class="modal">
+  <span onclick="document.getElementById('id01').style.display='none'"
+        class="close" title="Close Modal">&times;</span>
 
-            <label for="mem_type">Member type</label>
-            <select id="mem_type" name="member_type">
-              <option value="student">Student</option>
-              <option value="teacher">Teacher</option>
-            </select>
+        <!-- Modal Content -->
+        <form class="modal-content animate" action="smain">
+            <div class="imgcontainer">
+                <img src="{% static "img/student.png" %}" alt="Avatar" class="avatar">
+            </div>
 
-            <input type="submit" value="Submit">
-          </form>
-        </div>
-    {% endif %}
+            <div class="container">
+                <label for="uname"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" name="uname" required>
+
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required>
+
+                <button type="submit">Login</button>
+            </div>
+
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">
+                    Cancel
+                </button>
+            </div>
+        </form>
+    </div>
+
+
+    <!-- The Modal -->
+    <div id="id02" class="modal">
+  <span onclick="document.getElementById('id02').style.display='none'"
+        class="close" title="Close Modal">&times;</span>
+
+        <!-- Modal Content -->
+        <form class="modal-content animate" action="tmain">
+            <div class="imgcontainer">
+                <img src="{% static "img/teacher.png" %}" alt="Avatar" class="avatar">
+            </div>
+
+            <div class="container">
+                <label for="uname"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" name="uname" required>
+
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required>
+
+                <button type="submit">Login</button>
+            </div>
+
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">
+                    Cancel
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    // Get the modal
+    const modal1 = document.getElementById('id01');
+    const modal2 = document.getElementById('id02');
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target === modal1 || event.target === modal2) {
+            modal1.style.display = "none";
+            modal2.style.display = "none";
+        }
+    }
+</script>
 </body>
 </html>

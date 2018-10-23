@@ -20,5 +20,6 @@ import views
 
 urlpatterns = [
     re_path(r'^$|index', views.index),
+    re_path(r'login', views.login),
     path('admin/', admin.site.urls),
 ]

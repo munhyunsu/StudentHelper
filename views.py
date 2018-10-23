@@ -10,3 +10,7 @@ def index(request):
     return HttpResponse(template.render({'id': id,
                                          'passwd': passwd,
                                          'mem_type': mem_type}))
+
+
+def login(request):
+    return HttpResponse(request.method, request.body)
