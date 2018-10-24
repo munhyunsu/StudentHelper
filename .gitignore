@@ -1,5 +1,6 @@
 # Django
 
+advice/migrations/
 StudentHelper/settings.py
 .static_root/
 

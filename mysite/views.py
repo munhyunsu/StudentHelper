@@ -44,7 +44,6 @@ def tmain(request):
             reply.append({'to': r.to,
                           'title': q.title,
                           'pub_date': r.pub_date})
-        print(reply)
         unsolved_question = Question.objects.filter(is_done=False).order_by('pub_date')
         return render(request, 'tmain.html', {'my_reply': reply,
                                               'questions': unsolved_question})
@@ -87,7 +86,6 @@ def signup(request):
             uname = form.cleaned_data.get('username')
             psw = form.cleaned_data.get('password1')
             psw_repeat = form.cleaned_data.get('password2')
-            print(psw, psw_repeat)
             if psw != psw_repeat:
                 return HttpResponse('password != repeated password')
             user = authenticate(username=uname, password=psw)
