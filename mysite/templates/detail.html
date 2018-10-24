@@ -47,7 +47,7 @@
         <textarea name="content" required>{{ r.content }}</textarea>
         <button type="submit" style="width: 50%;">답변 수정 완료</button>
         {% else %}
-        <textarea name="content" required readonly>{{ question.content }}</textarea>
+        <textarea name="content" required readonly>{{ r.content }}</textarea>
         {% endif %}
         {% if user.username == question.author %}
             <button type="submit" name="select" value="select" style="width: 50%;">이 답변 선택</button>

@@ -51,7 +51,7 @@
 
         <ul id="myUL" >
         {% for q in questions %}
-        <li><a href="detail/{{ q.id }}">{{ q.title }} by {{ r.pub_date }}</a></li>
+        <li><a href="detail/{{ q.id }}">{{ q.title }} by {{ q.pub_date }}</a></li>
         {% endfor %}
         </ul>
         </div>
