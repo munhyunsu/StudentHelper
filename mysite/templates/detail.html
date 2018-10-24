@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+{#    <link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}">#}
+{#    <link rel="stylesheet" type="text/css" href="{% static "css/index.css" %}">#}
+    <meta charset="UTF-8">
+    <title>Student Helper - Question {{ question.id }}</title>
+</head>
+<body>
+{#    {{ user.username }}#}
+{#    {{ question.id }}#}
+{#    {{ question.title }}#}
+{#    {{ question.content }}#}
+    <form method="post" action="">
+    {% csrf_token %}
+    <input hidden value="question" name="locate">
+    <div class="question">
+        {% if user.username == question.author %}
+        <label for="title"><b>제목: </b></label>
+        <input type="text" value="{{ question.title }}" name="title" required>
+        <label for="content"><b>내용: </b></label>
+        <textarea name="content" required>{{ question.content }}</textarea>
+        <button type="submit">질문 수정 완료</button>
+        {% else %}
+        <label for="title"><b>제목: </b></label>
+        <input type="text" value="{{ question.title }}" name="title" required readonly>
+        <label for="content"><b>내용: </b></label>
+        <textarea name="content" required readonly>{{ question.content }}</textarea>
+        {% endif %}
+    </div>
+    </form>
+
+    <div class="reply">
+    {% for r in reply %}
+        <form method="post" action="">
+        {% csrf_token %}
+        <input hidden value="reply" name="locate">
+        <input hidden value="{{ r.id }}" name="reply_id">
+        {% if r.is_selected == True %}
+            <label for="content"><b>선택된 답변: </b></label>
+        {% else %}
+            <label for="content"><b>답변: </b></label>
+        {% endif %}
+        {% if user.username == r.author %}
+        <textarea name="content" required>{{ r.content }}</textarea>
+        <button type="submit">답변 수정 완료</button>
+        {% else %}
+        <textarea name="content" required readonly>{{ question.content }}</textarea>
+        {% endif %}
+        {% if user.username == question.author %}
+            <button type="submit" name="select" value="select">이 답변 선택</button>
+        {% endif %}
+        </form>
+
+    {% endfor %}
+    </div>
+
+    <div class="new_reply">
+        <form method="post" action="">
+        {% csrf_token %}
+        <input hidden value="new_reply" name="locate">
+        <label for="content"><b>새로 답변 하기: </b></label>
+        <textarea name="content" required>{{ r.content }}</textarea>
+        <button type="submit">답변 작성 완료</button>
+        </form>
+    </div>
+
+</body>
+</html>

@@ -9,10 +9,18 @@ class Question(models.Model):
     content = models.TextField('question content')
     author = models.CharField('author', max_length=50)
     pub_date = models.DateTimeField('date published')
+    is_done = models.BooleanField('is solved')
 
     def __str__(self):
         return self.title
 
-    def was_published_recently(self):
-        now = timezone.now()
-        return now - datetime.timedelta(days=1) <= self.pub_date <= now
+
+class Reply(models.Model):
+    author = models.CharField('author', max_length=50)
+    to = models.IntegerField('question id')
+    content = models.TextField('reply content')
+    pub_date = models.DateTimeField('date published')
+    is_selected = models.BooleanField('is selected')
+
+    def __str__(self):
+        return '{0} to {1} at {2}'.format(self.author, self.to, self.pub_date)
