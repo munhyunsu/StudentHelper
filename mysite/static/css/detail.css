@@ -1,0 +1,41 @@
+input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border-radius: 10px;
+    border: 2px solid #8bdd85;
+    box-sizing: border-box;
+}
+
+textarea {
+    width: 100%;
+    height: 100px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 2px solid #79be75;
+    border-radius: 10px;
+    box-sizing: border-box;
+    overflow: auto;
+
+}
+
+/* Set a style for all buttons */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px;
+    /*margin: 8px 1px;*/
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    float: left;
+}
+
+form {
+    /*display: inline;*/
+    width: 100%;
+    /*margin: 40px 0 40px 0;*/
+    padding-bottom: 100px;
+    /*display: block;*/
+    /*float: left;*/
+}

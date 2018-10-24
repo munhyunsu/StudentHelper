@@ -3,10 +3,94 @@
 <head>
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/index.css" %}">
     <meta charset="UTF-8">
     <title>Student Helper - Teacher main</title>
 </head>
 <body>
-<h3>Teacher  {{ method }} {{ user.is_authenticated }} {{ user.username }} {{ user.password }}}</h3>
+{#<h3>Student {{ method }} {{ user.is_authenticated }} {{ user.username }} {{ user.password }}</h3>#}
+
+<div class="row">
+{#    <div class="column" style="background-color:#eee;">#}
+    <div class="column">
+
+        <button  onclick="document.getElementById('id01').style.display='block'">내 답변 확인하기</button>
+
+            <!-- The Modal -->
+    <div id="id01" class="modal">
+  <span onclick="document.getElementById('id01').style.display='none'"
+        class="close" title="Close Modal">&times;</span>
+
+        <!-- Modal Content -->
+        <div class="modal-content animate container" >
+        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for question..">
+
+        <ul id="myUL" >
+        {% for r in my_reply %}
+        <li><a href="detail/{{ r.to }}">{{ r.title }} by {{ r.pub_date }}</a></li>
+        {% endfor %}
+        </ul>
+        </div>
+    </div>
+
+
+
+    </div>
+{#    <div class="column" style="background-color:#ddd;">#}
+    <div class="column">
+        <button  onclick="document.getElementById('id02').style.display='block'">미해결 질문 보기</button>
+
+                    <!-- The Modal -->
+    <div id="id02" class="modal">
+  <span onclick="document.getElementById('id02').style.display='none'"
+        class="close" title="Close Modal">&times;</span>
+
+        <!-- Modal Content -->
+        <div class="modal-content animate container" >
+        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for templates..">
+
+        <ul id="myUL" >
+        {% for q in questions %}
+        <li><a href="detail/{{ q.id }}">{{ q.title }} by {{ r.pub_date }}</a></li>
+        {% endfor %}
+        </ul>
+        </div>
+    </div>
+    </div>
+</div>
+
+<script>
+function myFunction() {
+    // Declare variables
+    var input, filter, ul, li, a, i;
+    input = document.getElementById('myInput');
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName('li');
+
+    // Loop through all list items, and hide those who don't match the search query
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+</script>
+<script>
+    // Get the modal
+    const modal1 = document.getElementById('id01');
+    const modal2 = document.getElementById('id02');
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target === modal1 || event.target === modal2) {
+            modal1.style.display = "none";
+            modal2.style.display = "none";
+        }
+    }
+</script>
 </body>
 </html>

@@ -37,8 +37,17 @@ def tmain(request):
     if request.method == 'GET':
         method = request.method
         user = request.user
-        return render(request, 'tmain.html', {'method': method,
-                                              'user': user})
+        my_reply = Reply.objects.filter(author=user).order_by('-pub_date')
+        reply = list()
+        for r in my_reply:
+            q = Question.objects.get(id=r.to)
+            reply.append({'to': r.to,
+                          'title': q.title,
+                          'pub_date': r.pub_date})
+        print(reply)
+        unsolved_question = Question.objects.filter(is_done=False).order_by('pub_date')
+        return render(request, 'tmain.html', {'my_reply': reply,
+                                              'questions': unsolved_question})
     elif request.method == 'POST':
         method = request.method
         uname = request.POST.get('uname')
@@ -52,13 +61,22 @@ def tmain(request):
 
 
 def thread(request):
-    method = request.method
-    user = request.user
-    if user is not None:
-        return render(request, 'thread.html', {'method': method,
-                                               'user': user})
+    if request.method == 'POST':
+        user = request.user
+        title = request.POST.get('title')
+        content = request.POST.get('content')
+        author = user.username
+        pub_date = timezone.now()
+        is_done = False
+        question = Question(title=title,
+                            content=content,
+                            author=author,
+                            pub_date=pub_date,
+                            is_done=is_done)
+        question.save()
+        return HttpResponseRedirect('/detail/{0}'.format(question.id))
     else:
-        return HttpResponse('Login sesstion is invalid')
+        return render(request, 'thread.html')
 
 
 def signup(request):
@@ -104,6 +122,9 @@ def detail(request, question_id):
                 reply = Reply.objects.get(id=reply_id)
                 reply.is_selected = is_selected
                 reply.save()
+                question = Question.objects.get(id=question_id)
+                question.is_done = True
+                question.save()
             reply = Reply.objects.get(id=reply_id)
             reply.content = content
             reply.save()

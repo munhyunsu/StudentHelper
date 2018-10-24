@@ -1,11 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
+{#    <link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}">#}
+{#    <link rel="stylesheet" type="text/css" href="{% static "css/index.css" %}">#}
+    <link rel="stylesheet" type="text/css" href="{% static "css/detail.css" %}">
     <meta charset="UTF-8">
-    <title>Student Helper - New Thread</title>
+    <title>Student Helper - New Question</title>
 </head>
 <body>
-<h3>New Thread {{ method }} {{ user.is_authenticated }} {{ user.username }} {{ user.password }}</h3>
-
+    <form method="post" action="">
+    {% csrf_token %}
+    <input hidden value="question" name="locate">
+    <div class="question">
+        <label for="title"><b>제목: </b></label>
+        <input type="text" placeholder="제목을 입력합니다." name="title" required>
+        <label for="content"><b>내용: </b></label>
+        <textarea name="content" placeholder="내용을 입력합니다." required></textarea>
+        <button type="submit">질문 작성 완료</button>
+    </div>
+    </form>
 </body>
 </html>
