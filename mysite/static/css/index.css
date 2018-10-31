@@ -1,4 +1,12 @@
 /* Bordered form */
+/*.header {*/
+    /*background-color: black;*/
+/*}*/
+
+body {
+    background: linear-gradient(to bottom, yellow 0%, white 100%); /* W3C */
+}
+
 form {
     border: 3px solid #f1f1f1;
 }
