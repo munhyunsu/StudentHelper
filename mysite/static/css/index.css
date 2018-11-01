@@ -1,7 +1,7 @@
 /* Bordered form */
-/*.header {*/
-    /*background-color: black;*/
-/*}*/
+.header {
+    background-color: black;
+}
 
 body {
     background: linear-gradient(to bottom, yellow 0%, white 100%); /* W3C */
