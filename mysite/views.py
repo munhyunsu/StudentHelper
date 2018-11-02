@@ -45,7 +45,8 @@ def tmain(request):
                           'title': q.title,
                           'pub_date': r.pub_date})
         unsolved_question = Question.objects.filter(is_done=False).order_by('pub_date')
-        return render(request, 'tmain.html', {'my_reply': reply,
+        return render(request, 'tmain.html', {'user': user,
+                                              'my_reply': reply,
                                               'questions': unsolved_question})
     elif request.method == 'POST':
         method = request.method

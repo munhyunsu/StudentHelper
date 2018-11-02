@@ -2,16 +2,16 @@
 <html lang="en">
 <head>
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}">
     <link rel="stylesheet" type="text/css" href="{% static "css/index.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}">
     <meta charset="UTF-8">
     <title>Student Helper - Teacher main</title>
 </head>
 <body>
-{#<h3>Student {{ method }} {{ user.is_authenticated }} {{ user.username }} {{ user.password }}</h3>#}
-
+<div class="header">
+  <h1 class="logo"><a href="/"><img src="{% static "img/logo.png" %}" class="logo" align="center"></a> Hello My Tutor: {{ user.username }} 선생님 환영합니다. </h1>
+</div>
 <div class="row">
-{#    <div class="column" style="background-color:#eee;">#}
     <div class="column">
 
         <button  onclick="document.getElementById('id01').style.display='block'">내 답변 확인하기</button>
@@ -36,7 +36,6 @@
 
 
     </div>
-{#    <div class="column" style="background-color:#ddd;">#}
     <div class="column">
         <button  onclick="document.getElementById('id02').style.display='block'">미해결 질문 보기</button>
 
