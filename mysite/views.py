@@ -38,6 +38,7 @@ def tmain(request):
         method = request.method
         user = request.user
         my_reply = Reply.objects.filter(author=user).order_by('-pub_date')
+        stars = len(Reply.objects.filter(author=user, is_selected=True))
         reply = list()
         for r in my_reply:
             q = Question.objects.get(id=r.to)
@@ -46,6 +47,7 @@ def tmain(request):
                           'pub_date': r.pub_date})
         unsolved_question = Question.objects.filter(is_done=False).order_by('pub_date')
         return render(request, 'tmain.html', {'user': user,
+                                              'stars': stars,
                                               'my_reply': reply,
                                               'questions': unsolved_question})
     elif request.method == 'POST':

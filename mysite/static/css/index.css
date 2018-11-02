@@ -15,7 +15,7 @@ img.logo {
 }
 
 body {
-    background-image: linear-gradient(to bottom, black 0%, black 20%, yellow 20%, yellow 70%, white 70%, white 100%); /* W3C */
+    background-image: linear-gradient(to bottom, black 0%, black 21%, yellow 21%, yellow 70%, white 70%, white 100%); /* W3C */
     background-repeat: no-repeat;
 }
 
@@ -65,7 +65,7 @@ button:hover {
 /* Avatar image */
 img.avatar {
     width: 40%;
-    border-radius: 50%;
+    border-radius: 10%;
 }
 
 /* Add padding to containers */

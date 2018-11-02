@@ -1,24 +1,24 @@
 
 /*!* Bordered form *!*/
-.header {
-    background-color: black;
-}
+/*.header {*/
+    /*background-color: black;*/
+/*}*/
 
-h1.logo {
-    font-size: 4vw;
-    color: white;
-}
+/*h1.logo {*/
+    /*font-size: 4vw;*/
+    /*color: white;*/
+/*}*/
 
-img.logo {
-    width: 5%;
-    height: 5%;
-    border-radius: 50%;
-}
+/*img.logo {*/
+    /*width: 5%;*/
+    /*height: 5%;*/
+    /*border-radius: 50%;*/
+/*}*/
 
-body {
-    background-image: linear-gradient(to bottom, black 0%, black 60%, yellow 60%, yellow 90%, white 90%, white 100%); /* W3C */
-    background-repeat: no-repeat;
-}
+/*!*body {*!*/
+    /*!*background-image: linear-gradient(to bottom, black 0%, black 60%, yellow 60%, yellow 90%, white 90%, white 100%); !* W3C *!*!*/
+    /*!*background-repeat: no-repeat;*!*/
+/*!*}*!*/
 
 * {
     box-sizing: border-box;

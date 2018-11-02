@@ -9,12 +9,21 @@
 </head>
 <body>
 <div class="header">
-  <h1 class="logo"><a href="/"><img src="{% static "img/logo.png" %}" class="logo" align="center"></a> Hello My Tutor: {{ user.username }} 선생님 환영합니다. </h1>
+  <h1 class="logo"><a href="/"><img src="{% static "img/logo.png" %}" class="logo" align="center"></a> Hello My Tutor: {{ user.username }} 선생님({{ stars }}★) 환영합니다. </h1>
 </div>
 <div class="row">
-    <div class="column">
 
-        <button  onclick="document.getElementById('id01').style.display='block'">내 답변 확인하기</button>
+    <div align="center">
+        {#    <button onclick="document.getElementById('id01').style.display='block'">Login</button>#}
+        <img src="{% static "img/my_reply.png" %}" onclick="document.getElementById('id01').style.display='block'"
+             class="avatar"/>
+        <img src="{% static "img/new_reply.png" %}" onclick="document.getElementById('id02').style.display='block'"
+             class="avatar"/>
+    </div>
+
+
+
+{#        <button  onclick="document.getElementById('id01').style.display='block'">내 답변 확인하기</button>#}
 
             <!-- The Modal -->
     <div id="id01" class="modal">
@@ -35,9 +44,9 @@
 
 
 
-    </div>
-    <div class="column">
-        <button  onclick="document.getElementById('id02').style.display='block'">미해결 질문 보기</button>
+{#    </div>#}
+{#    <div class="column">#}
+{#        <button  onclick="document.getElementById('id02').style.display='block'">미해결 질문 보기</button>#}
 
                     <!-- The Modal -->
     <div id="id02" class="modal">
@@ -55,7 +64,7 @@
         </ul>
         </div>
     </div>
-    </div>
+{#    </div>#}
 </div>
 
 <script>

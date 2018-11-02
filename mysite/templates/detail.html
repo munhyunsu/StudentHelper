@@ -9,7 +9,7 @@
     <title>Student Helper - Question {{ question.id }}</title>
 </head>
 <div class="header">
-  <h1 class="logo"><a href="/"><img src="{% static "img/logo.png" %}" class="logo" align="center"></a> {{ user.username }} 학생의 질문 </h1>
+  <h1 class="logo"><a href="/"><img src="{% static "img/logo.png" %}" class="logo" align="center"></a> {{ question.author }} 학생의 질문 </h1>
 </div>
 <body>
 {#    {{ user.username }}#}
@@ -42,7 +42,7 @@
         <input hidden value="reply" name="locate">
         <input hidden value="{{ r.id }}" name="reply_id">
         {% if r.is_selected == True %}
-            <label for="content"><b style="font-size: 1.5em;">선택된 답변: </b></label>
+            <label for="content"><b style="font-size: 1.5em;">별(★)을 받은 답변: </b></label>
         {% else %}
             <label for="content"><b>답변: </b></label>
         {% endif %}
@@ -53,7 +53,7 @@
         <textarea name="content" required readonly>{{ r.content }}</textarea>
         {% endif %}
         {% if user.username == question.author %}
-            <button type="submit" name="select" value="select" style="width: 50%;">이 답변 선택</button>
+            <button type="submit" name="select" value="select" style="width: 50%;">이 답변에 별(★) 주기</button>
         {% endif %}
         </form>
 

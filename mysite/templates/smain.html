@@ -12,9 +12,16 @@
   <h1 class="logo"><a href="/"><img src="{% static "img/logo.png" %}" class="logo" align="center"></a> {{ user.username }} 학생 환영합니다. </h1>
 </div>
 <div class="row">
-    <div class="column">
+{#    <div class="column">#}
 
-        <button  onclick="document.getElementById('id01').style.display='block'">내 글 확인하기</button>
+    <div align="center">
+        {#    <button onclick="document.getElementById('id01').style.display='block'">Login</button>#}
+        <img src="{% static "img/my_question.png" %}" onclick="document.getElementById('id01').style.display='block'"
+             class="avatar"/>
+        <img src="{% static "img/new_question.png" %}" onclick="document.getElementById('id02').style.display='block'"
+             class="avatar"/>
+    </div>
+{#        <button  onclick="document.getElementById('id01').style.display='block'">내 글 확인하기</button>#}
 
             <!-- The Modal -->
     <div id="id01" class="modal">
@@ -35,9 +42,9 @@
 
 
 
-    </div>
-    <div class="column">
-        <button  onclick="document.getElementById('id02').style.display='block'">새로 글 쓰기</button>
+{#    </div>#}
+{#    <div class="column">#}
+{#        <button  onclick="document.getElementById('id02').style.display='block'">새로 글 쓰기</button>#}
 
                     <!-- The Modal -->
     <div id="id02" class="modal">
@@ -56,7 +63,7 @@
         </ul>
         </div>
     </div>
-    </div>
+{#    </div>#}
 </div>
 
 <script>
