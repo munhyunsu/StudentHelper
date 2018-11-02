@@ -7,16 +7,16 @@
     <title>Student Helper</title>
 </head>
 <body>
-{#<div class="header">#}
-{#  <h1>학습 도우미</h1>#}
-{#</div>#}
+<div class="header">
+  <h1 class="logo"><a href="/"><img src="{% static "img/logo.png" %}" class="logo" align="center"></a> Hello My Tutor </h1>
+</div>
 <div class="row">
     <!-- Button to open the modal login form -->
     <div align="center">
         {#    <button onclick="document.getElementById('id01').style.display='block'">Login</button>#}
-        <img src="{% static "img/student.png" %}" onclick="document.getElementById('id01').style.display='block'"
+        <img src="{% static "img/student_fill.png" %}" onclick="document.getElementById('id01').style.display='block'"
              class="avatar"/>
-        <img src="{% static "img/teacher.png" %}" onclick="document.getElementById('id02').style.display='block'"
+        <img src="{% static "img/teacher_fill.png" %}" onclick="document.getElementById('id02').style.display='block'"
              class="avatar"/>
     </div>
 
