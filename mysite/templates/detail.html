@@ -42,7 +42,7 @@
         <input hidden value="reply" name="locate">
         <input hidden value="{{ r.id }}" name="reply_id">
         {% if r.is_selected == True %}
-            <label for="content"><b>선택된 답변: </b></label>
+            <label for="content"><b style="font-size: 1.5em;">선택된 답변: </b></label>
         {% else %}
             <label for="content"><b>답변: </b></label>
         {% endif %}

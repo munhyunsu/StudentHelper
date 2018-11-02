@@ -21,6 +21,7 @@ class Reply(models.Model):
     content = models.TextField('reply content')
     pub_date = models.DateTimeField('date published')
     is_selected = models.BooleanField('is selected')
+    rate = models.FloatField('rate')
 
     def __str__(self):
         return '{0} to {1} at {2}'.format(self.author, self.to, self.pub_date)
