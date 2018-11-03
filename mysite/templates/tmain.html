@@ -14,7 +14,6 @@
 <div class="row">
 
     <div align="center">
-        {#    <button onclick="document.getElementById('id01').style.display='block'">Login</button>#}
         <img src="{% static "img/my_reply.png" %}" onclick="document.getElementById('id01').style.display='block'"
              class="avatar"/>
         <img src="{% static "img/new_reply.png" %}" onclick="document.getElementById('id02').style.display='block'"
@@ -23,7 +22,6 @@
 
 
 
-{#        <button  onclick="document.getElementById('id01').style.display='block'">내 답변 확인하기</button>#}
 
             <!-- The Modal -->
     <div id="id01" class="modal">
@@ -41,13 +39,6 @@
         </ul>
         </div>
     </div>
-
-
-
-{#    </div>#}
-{#    <div class="column">#}
-{#        <button  onclick="document.getElementById('id02').style.display='block'">미해결 질문 보기</button>#}
-
                     <!-- The Modal -->
     <div id="id02" class="modal">
   <span onclick="document.getElementById('id02').style.display='none'"
@@ -64,7 +55,6 @@
         </ul>
         </div>
     </div>
-{#    </div>#}
 </div>
 
 <script>

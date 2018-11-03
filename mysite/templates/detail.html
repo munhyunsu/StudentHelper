@@ -2,8 +2,6 @@
 <html lang="en">
 <head>
     {% load static %}
-{#    <link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}">#}
-{#    <link rel="stylesheet" type="text/css" href="{% static "css/index.css" %}">#}
     <link rel="stylesheet" type="text/css" href="{% static "css/detail.css" %}">
     <meta charset="UTF-8">
     <title>Student Helper - Question {{ question.id }}</title>
@@ -12,10 +10,6 @@
   <h1 class="logo"><a href="/"><img src="{% static "img/logo.png" %}" class="logo" align="center"></a> {{ question.author }} 학생의 질문 </h1>
 </div>
 <body>
-{#    {{ user.username }}#}
-{#    {{ question.id }}#}
-{#    {{ question.title }}#}
-{#    {{ question.content }}#}
     <form method="post" action="">
     {% csrf_token %}
     <input hidden value="question" name="locate">
