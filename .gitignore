@@ -1,7 +1,7 @@
 # Django
-
 advice/migrations/
 StudentHelper/settings.py
+**/static/
 .static_root/
 
 # vim
